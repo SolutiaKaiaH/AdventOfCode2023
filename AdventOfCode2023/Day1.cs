@@ -20,18 +20,13 @@ namespace AdventOfCode
             line = sr.ReadLine();
 
 
-            //make sure line isn't empty, and that at least one character is a number
+            //make sure line isn't empty
             while (line != null)
             {
 
-
-               
-
-
-
                 //convert string to numbers not words
                 while (line.Contains("one") || line.Contains("two") || line.Contains("three") || line.Contains("four") || line.Contains("five") || line.Contains("six") || line.Contains("seven") || line.Contains("eight") || line.Contains("nine"))
-            {
+                {
                 if (line.Contains("one"))
                 {
                     line = line.Replace("one", "on1e");
@@ -122,8 +117,6 @@ namespace AdventOfCode
                 lineTotal = 0;
                 numbers = 0;
                 line = sr.ReadLine();
-               
-                
 
             }
             sr.Close();
