@@ -21,11 +21,18 @@ namespace AdventOfCode2023
             bool greenPossible = true;
             bool bluePossible = true;
 
+            int redMax = 0;
+            int greenMax = 0;
+            int blueMax = 0;
+
             int totalIndexs = 0;
 
             int lineTrue = 0;
 
             int index;
+
+            int sumPowers = 0;
+            int power = 0;
 
             //For all Games
             for (int i = 1; i <= 100; i++)
@@ -51,7 +58,6 @@ namespace AdventOfCode2023
                 //for each game in the game (one line)
                 foreach (string game in aGame)
                 {
-                    Console.WriteLine(game);
                     string[] aPiece = game.Split(",");
 
                     //for each piece in a game 
@@ -68,6 +74,11 @@ namespace AdventOfCode2023
                                     string holder = piece[j].ToString();
                                     red = int.Parse(red.ToString() + holder);
                                 }
+                            }
+                            //check the max
+                            if(red > redMax)
+                            {
+                                redMax = red;
                             }
 
                             //check if red is less than or equal to 12 
@@ -93,6 +104,12 @@ namespace AdventOfCode2023
                                 }
                             }
 
+                            //check the max
+                            if (green > greenMax)
+                            {
+                                greenMax = green;
+                            }
+
                             //check if red is less than or equal to 12 
                             if (green <= 13)
                             {
@@ -114,6 +131,11 @@ namespace AdventOfCode2023
                                     string holder = piece[j].ToString();
                                     blue = int.Parse(blue.ToString() + holder);
                                 }
+                            }
+                            //check the max
+                            if (blue > blueMax)
+                            {
+                                blueMax = blue;
                             }
 
                             //check if red is less than or equal to 12 
@@ -146,9 +168,17 @@ namespace AdventOfCode2023
 
                 line = sr.ReadLine();
 
+                power = redMax * greenMax * blueMax;
+                sumPowers += power;
+                blueMax = 0;
+                redMax = 0;
+                greenMax = 0;
+                power = 0;
+
 
             }
             Console.WriteLine(totalIndexs);
+            Console.WriteLine(sumPowers);
         }
     }
 }
