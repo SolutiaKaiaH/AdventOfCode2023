@@ -13,9 +13,14 @@ class Program
         //Day1.CalabrationValues(filePath);
 
 
-        Console.WriteLine("Starting Day 2...");
-        string filePath = "../../../inputs/dayTwoInput.txt";
-        Day2.IndexValues(filePath);
+        //Console.WriteLine("Starting Day 2...");
+        //string filePath = "../../../inputs/dayTwoInput.txt";
+        //Day2.IndexValues(filePath);
+
+        Console.WriteLine("Starting Day 3...");
+        string filePath = "../../../inputs/dayThreeInput.txt";
+        Day3.PartSums(filePath);
+
 
     }
 }
