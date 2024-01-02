@@ -17,9 +17,13 @@ class Program
         //string filePath = "../../../inputs/dayTwoInput.txt";
         //Day2.IndexValues(filePath);
 
-        Console.WriteLine("Starting Day 3...");
-        string filePath = "../../../inputs/dayThreeInput.txt";
-        Day3.PartSums(filePath);
+        //Console.WriteLine("Starting Day 3...");
+        //string filePath = "../../../inputs/dayThreeInput.txt";
+        //Day3.PartSums(filePath);
+
+        Console.WriteLine("Starting Day 4...");
+        string filePath = "../../../inputs/dayFourInput.txt";
+        Day4.CardsSums(filePath);
 
 
     }
