@@ -25,13 +25,14 @@ class Program
         //string filePath = "../../../inputs/dayThreeInput.txt";
         //Day3.CardSums(filePath);
 
-        Console.WriteLine("Starting Day 4 Part 2...");
-        string filePath = "../../../inputs/dayFourInput.txt";
-        Day4P2 day4Instance = new Day4P2();
-        day4Instance.CopiesSum(filePath);
+        //Console.WriteLine("Starting Day 4 Part 2...");
+        //string filePath = "../../../inputs/dayFourInput.txt";
+        //Day4P2 day4Instance = new Day4P2();
+        //day4Instance.CopiesSum(filePath);
 
-       
-
+        Console.WriteLine("Starting Day 5...");
+        string filePath = "../../../inputs/dayFiveInput.txt";
+        Day5.Fertalizer(filePath);
 
     }
 }
