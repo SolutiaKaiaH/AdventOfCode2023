@@ -14,9 +14,23 @@ namespace AdventOfCode2023
             //get the top line of seeds and split them into an array 
             StreamReader sr = new StreamReader(filePath);
             var mainSeeds = sr.ReadLine()!.Substring(6);
-            var seeds = mainSeeds.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            var oseeds = mainSeeds.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
                 .Select(long.Parse)
                 .ToArray();
+
+            List<long> seeds = new List<long>();
+
+            for (int i = 0; i < oseeds.Length; i += 2)
+            {
+                long start = oseeds[i];
+                long length = oseeds[i + 1];
+
+                for (long j = 0; j < length; j++)
+                {
+                    seeds.Add(start + j);
+                }
+            }
+
 
             sr.ReadLine(); //empty line
 
@@ -39,10 +53,12 @@ namespace AdventOfCode2023
                 var seedRangeGroup = new SeedRangeGroup(seedRanges.ToArray());
 
                 //Check if the seed is in Range, get the range and put it in seeds
-                for(int j = 0; j < seeds.Length; j++)
+                for(int j = 0; j < 1606226378; j++)
+                   
                 {
                     //replace the seed just used with the new destination int, this goes to the next map and tumbles down
                     seeds[j] = seedRangeGroup.Map(seeds[j]);
+                    
                 }
 
                 Console.WriteLine(seeds.Min());
