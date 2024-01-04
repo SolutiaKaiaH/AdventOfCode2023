@@ -30,9 +30,13 @@ class Program
         //Day4P2 day4Instance = new Day4P2();
         //day4Instance.CopiesSum(filePath);
 
-        Console.WriteLine("Starting Day 5...");
-        string filePath = "../../../inputs/dayFiveInput.txt";
-        Day5.Fertalizer(filePath);
+        //Console.WriteLine("Starting Day 5...");
+        //string filePath = "../../../inputs/dayFiveInput.txt";
+        //Day5.Fertalizer(filePath);
+
+        Console.WriteLine("Starting Day 6...");
+        string filePath = "../../../inputs/daySixInput.txt";
+        Day6.BoatRace(filePath);
 
     }
 }
