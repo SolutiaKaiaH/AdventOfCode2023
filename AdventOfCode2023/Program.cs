@@ -34,9 +34,13 @@ class Program
         //string filePath = "../../../inputs/dayFiveInput.txt";
         //Day5.Fertalizer(filePath);
 
-        Console.WriteLine("Starting Day 6...");
-        string filePath = "../../../inputs/daySixInput.txt";
-        Day6.BoatRace(filePath);
+        //Console.WriteLine("Starting Day 6...");
+        //string filePath = "../../../inputs/daySixInput.txt";
+        //Day6.BoatRace(filePath);
+
+        Console.WriteLine("Starting Day 7...");
+        string filePath = "../../../inputs/daySevenInput.txt";
+        Day7.CamelCards(filePath);
 
     }
 }
