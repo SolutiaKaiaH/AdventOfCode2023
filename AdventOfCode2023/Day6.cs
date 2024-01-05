@@ -13,14 +13,14 @@ namespace AdventOfCode2023
             string input = File.ReadAllText(filePath);
 
             Race race = new Race();
-            int[] raceRecords = race.RaceRecords(input);
+            long[] raceRecords = race.RaceRecords(input);
 
             int sumWays = 1;
 
             for(int i = 0; i < raceRecords.Length; i+=2)
             {
-                int time = raceRecords[i];
-                int distance = raceRecords[i+1];
+                long time = raceRecords[i];
+                long distance = raceRecords[i+1];
 
                 sumWays = sumWays * WaysToBeat(time,distance); 
             }
@@ -31,7 +31,7 @@ namespace AdventOfCode2023
         class Race
         {
 
-            public int[] RaceRecords(string raceInput)
+            public long[] RaceRecords(string raceInput)
             {
                 // Split the input by lines
                 string[] lines = raceInput.Split('\n', StringSplitOptions.RemoveEmptyEntries);
@@ -41,29 +41,32 @@ namespace AdventOfCode2023
                 string[] distanceValues = lines[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                 // get each pair of values and store them in an array
-                int[] races = new int[(timeValues.Length - 1) * 2];
-                for (int i = 1; i < timeValues.Length; i++)
-                {
-                    if (!int.TryParse(timeValues[i], out races[(i - 1) * 2]) || !int.TryParse(distanceValues[i], out races[(i - 1) * 2 + 1]))
-                    {
-                        return new int[0];
-                    }
-                }
-
+                long[] races = new long[(timeValues.Length - 1) * 2];
+                //UNCOMMENT FOR PART 1 
+                //for (int i = 1; i < timeValues.Length; i++)
+                //{
+                //    if (!int.TryParse(timeValues[i], out races[(i - 1) * 2]) || !int.TryParse(distanceValues[i], out races[(i - 1) * 2 + 1]))
+                //    {
+                //        return new int[0];
+                //    }
+                //}
+                //COMMENT OUT FOR PART 2
+                races[0] = long.Parse(timeValues[1]);
+                races[1] = long.Parse(distanceValues[1]);
                 return races;
             }
 
         }
 
-        static int WaysToBeat(int time, int distance)
+        static int WaysToBeat(long time, long distance)
         {
             int waysToBeat = 0;
 
             for (int holdTime = 0; holdTime <= time; holdTime++)
             {
-                int remainingTime = time - holdTime;
-                int currentSpeed = holdTime;
-                int currentDistance = currentSpeed * remainingTime;
+                long remainingTime = time - holdTime;
+                long currentSpeed = holdTime;
+                long currentDistance = currentSpeed * remainingTime;
 
                 if(currentDistance > distance)
                 {
