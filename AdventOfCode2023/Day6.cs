@@ -12,20 +12,20 @@ namespace AdventOfCode2023
         {
             string input = File.ReadAllText(filePath);
 
-            // Example usage
             Race race = new Race();
             int[] raceRecords = race.RaceRecords(input);
+
+            int sumWays = 1;
 
             for(int i = 0; i < raceRecords.Length; i+=2)
             {
                 int time = raceRecords[i];
                 int distance = raceRecords[i+1];
 
-                for(int j = 0; j < time; j++)
-                {
-                    if(j )
-                }
+                sumWays = sumWays * WaysToBeat(time,distance); 
             }
+
+            Console.WriteLine(sumWays);
         }
 
         class Race
@@ -53,6 +53,25 @@ namespace AdventOfCode2023
                 return races;
             }
 
+        }
+
+        static int WaysToBeat(int time, int distance)
+        {
+            int waysToBeat = 0;
+
+            for (int holdTime = 0; holdTime <= time; holdTime++)
+            {
+                int remainingTime = time - holdTime;
+                int currentSpeed = holdTime;
+                int currentDistance = currentSpeed * remainingTime;
+
+                if(currentDistance > distance)
+                {
+                    waysToBeat++;
+                }
+            }
+
+            return waysToBeat;
         }
     }
 }
