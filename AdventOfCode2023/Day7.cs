@@ -26,7 +26,7 @@ namespace AdventOfCode2023
             }
 
             int totalWinnings = 0;
-            int rank = 5;
+            int rank = 1000;
 
             // Sort hands within each rank based on tie-breaking rules
             foreach (var rankHands in handsByRank)
@@ -82,9 +82,27 @@ namespace AdventOfCode2023
                 if (Cards.Contains('J'))
                 {
                     char maxCountKey = charCounts.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;  // Find the key with the maximum count
-                    Cards = Cards.Replace('J', maxCountKey);  // Replace 'J' with the key with the maximum count
-                    charCounts = Cards.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
-                    Cards = OriginalCards;
+
+                    //handle where J is the maxCountKey
+                    if(maxCountKey == 'J')
+                    {
+                        // Find the second highest key count
+                        var secondMaxCountKey = charCounts
+                            .Where(kv => kv.Key != maxCountKey)
+                            .OrderByDescending(kv => kv.Value)
+                            .Select(kv => kv.Key)
+                            .FirstOrDefault();
+                        Cards = Cards.Replace(secondMaxCountKey, 'J') ;
+                        charCounts = Cards.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
+                        Cards = OriginalCards;
+                    }
+                    //If not, procceed with swapping J in for the highest key count
+                    else
+                    {
+                        Cards = Cards.Replace(maxCountKey, 'J');
+                        charCounts = Cards.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
+                        Cards = OriginalCards;
+                    }
                 }
                
 
