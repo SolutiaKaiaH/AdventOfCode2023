@@ -38,9 +38,13 @@ class Program
         //string filePath = "../../../inputs/daySixInput.txt";
         //Day6.BoatRace(filePath);
 
-        Console.WriteLine("Starting Day 7...");
-        string filePath = "../../../inputs/daySevenInput.txt";
-        Day7.CamelCards(filePath);
+        //Console.WriteLine("Starting Day 7...");
+        //string filePath = "../../../inputs/daySevenInput.txt";
+        //Day7.CamelCards(filePath);
+
+        Console.WriteLine("Starting Day 8...");
+        string filePath = "../../../inputs/dayEightInput.txt";
+        Day8.LeftRight(filePath);
 
     }
 }
